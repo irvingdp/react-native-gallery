@@ -21,7 +21,8 @@ export default class Gallery extends Component {
     onPageScroll: PropTypes.func,
 
     onSingleTapConfirmed: PropTypes.func,
-    onGalleryStateChanged: PropTypes.func
+    onGalleryStateChanged: PropTypes.func,
+    placeHolderImageSource: PropTypes.number,
   };
 
   imageRefs = new Map();
@@ -234,7 +235,9 @@ export default class Gallery extends Component {
         }).bind(this)}
         key={'innerImage#' + pageId}
         style={{width: layout.width, height: layout.height}}
-        source={{uri: pageData}}/>
+        source={{uri: pageData}}
+        placeHolderImageSource={this.props.placeHolderImageSource}
+      />
     );
   }
 
